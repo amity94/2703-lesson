@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace _2703hw
 {
-    interface ICustomerDAO
+    public interface ICustomerDAO
     {
         List<Customer> GetAllCustomers();
         Customer GetCustomerById(int id);

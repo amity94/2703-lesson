@@ -12,7 +12,7 @@ namespace _2703hw
         static void Main(string[] args)
         {
             using (SQLiteConnection con =
-                new SQLiteConnection($@"Data Source = C:\Users\Amity\Desktop\לימודים\SQLite\hw2703.db; Version = 3;"))
+                new SQLiteConnection($@"Data Source = C:\Users\HackerU\Desktop\hw2703.db; Version = 3;"))
             {
                 con.Open();
                 using (SQLiteCommand cmd = new SQLiteCommand("select * from customer", con))
@@ -21,7 +21,7 @@ namespace _2703hw
                     {
                         while (reader.Read() == true)
                         {
-                            Customer c = new Customer
+                            Customer cc = new Customer
                             {
                                 Id = (int)reader["ID"],
                                 FirstName = (string)reader["FIRST_NAME"],
@@ -39,6 +39,24 @@ namespace _2703hw
                     }
                 }
             }
+
+
+
+            CustomerDAO cust = new CustomerDAO();
+
+            Customer c = new Customer
+            {
+            Id = 10,
+            FirstName = "amity",
+            LastName = "nissimov",
+            AddressCity = "pardeshana",
+            Age = 21,
+            AddressStreet = "hadkalim",
+            PhNumber = "na"
+            };
+
+            cust.AddCustomer(c);  
+
         }
     }
 }
